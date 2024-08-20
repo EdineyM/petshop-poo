@@ -5,6 +5,9 @@ public class Owner {
     Address address;
     String cpf;
 
+    public Owner() {
+    }
+
     public Owner(String name, String cpf) {
         this.name = name;
         this.cpf = cpf;

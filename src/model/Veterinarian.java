@@ -7,7 +7,10 @@ public class Veterinarian {
     Float salary;
     Address address;
     ArrayList<Animal> animal = new ArrayList<Animal>();
-    Integer numberAnimal;
+    Integer numberAnimal = 0;
+
+    public Veterinarian() {
+    }
 
     public Veterinarian(String name, Float salary) {
         this.name = name;
@@ -43,7 +46,10 @@ public class Veterinarian {
     }
 
     public void setAnimal(Animal animal) {
-        this.animal.add(animal);
+        if (this.numberAnimal <= 30) {
+            this.animal.add(animal);
+            this.numberAnimal++;
+        }
     }
 
     public Integer getNumberAnimal() {
@@ -52,5 +58,16 @@ public class Veterinarian {
 
     public void setNumberAnimal(Integer numberAnimal) {
         this.numberAnimal = numberAnimal;
+    }
+
+    @Override
+    public String toString() {
+        String veterinarian = "";
+        veterinarian += "Name: " + name + "\n";
+        veterinarian += "Salary: " + salary + "\n";
+        if (this.address != null) {
+            veterinarian += "Address: " + address.toString() + "\n";
+        }
+        return veterinarian;
     }
 }
